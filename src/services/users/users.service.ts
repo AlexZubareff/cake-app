@@ -35,6 +35,7 @@ export class UsersService {
         return this.userModel.find({ login: login });
       }
 
+
     async checkAuthUser(login: string, password: string): Promise<User | null> {
         const user = await this.userModel.findOne({ login: login });
 
@@ -44,7 +45,7 @@ export class UsersService {
           return null;
         }
         if (!(await bcrypt.compare(password, user.password))) {
-          console.log('USERS SEVICE WRONG');
+          console.log('USERS SEVICE WRONG PASSWORD');
           return null;
         }
         return user;
@@ -53,9 +54,13 @@ export class UsersService {
       async login(user: UserDto) {
         const payload = { login: user.login, password: user.password };
         const userFromDb = await this.userModel.find({login: user.login})
+
         console.log('userFromDb: ', userFromDb);
+
         return {
           id: userFromDb[0]._id,
+          login: userFromDb[0].login,
+          email: userFromDb[0].email,
           access_token: this.jwtService.sign(payload),
         };
       }
