@@ -18,7 +18,7 @@ export class Product implements IProduct {
   manufacturer: string;
 
   @Prop()
-  price: string;
+  price: number;
 
   @Prop()
   img: string;
