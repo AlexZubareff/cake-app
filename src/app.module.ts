@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './controllers/users/users.module';
 import { ProductsModule } from './controllers/products/products.module';
 import { CartsModule } from './controllers/carts/carts.module';
+import { ActionsModule } from './controllers/actions/actions.module';
 
 
 @Module({
@@ -12,7 +13,8 @@ import { CartsModule } from './controllers/carts/carts.module';
     MongooseModule.forRoot('mongodb://localhost:27017/cake-app'),
     UsersModule, 
     ProductsModule,
-    CartsModule
+    CartsModule,
+    ActionsModule
 ],
   controllers: [AppController],
   providers: [AppService],

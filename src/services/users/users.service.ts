@@ -5,6 +5,7 @@ import { Model } from 'mongoose';
 import { UserDto } from 'src/dto/user-dto';
 import { User, UserDocument } from 'src/shemas/user';
 import * as bcrypt from 'bcrypt';
+import { IUser } from 'src/interfaces/user';
 
 @Injectable()
 export class UsersService {
@@ -23,7 +24,7 @@ export class UsersService {
     }
 
     async addUser(data): Promise<User> {
-
+console.log('addUser data: ', data);
       const salt = await bcrypt.genSalt(10);
       data.password = await bcrypt.hash(data.password, salt);
 
@@ -62,10 +63,13 @@ export class UsersService {
           login: userFromDb[0].login,
           email: userFromDb[0].email,
           access_token: this.jwtService.sign(payload),
+          cartId: userFromDb[0].cartId
         };
       }
 
-      async updateUser(id: string, data): Promise<User> {
+      async updateUser(id: string, data: IUser): Promise<User> {
+        console.log('updateUserData: ', id, data);
+
         return this.userModel.findByIdAndUpdate(id, data);
       }
     

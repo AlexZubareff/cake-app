@@ -5,5 +5,10 @@ export interface IProduct {
     price: number,
     img: string,
     id?: string,
+    type?: string,
     // _id?: string
+}
+
+export interface IProductInCart extends IProduct {
+    count: number
 }

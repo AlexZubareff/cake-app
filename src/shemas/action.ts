@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import { IProduct } from 'src/interfaces/product';
+import { IAction } from 'src/interfaces/action';
 
-export type ProductDocument = HydratedDocument<Product>;
+export type ActionDocument = HydratedDocument<Action>;
 
 @Schema()
-export class Product implements IProduct {
+export class Action implements IAction {
 
 @Prop({required: true, minlength: 2})
   title: string
@@ -13,12 +13,6 @@ export class Product implements IProduct {
   @Prop({required: true})
   description: string;
 
-  @Prop()
-  // ({required: true})
-  manufacturer: string;
-
-  @Prop()
-  price: number;
 
   @Prop()
   img: string;
@@ -31,4 +25,4 @@ export class Product implements IProduct {
 
 }
 
-export const ProductSchema = SchemaFactory.createForClass(Product);
+export const ActionSchema = SchemaFactory.createForClass(Action);

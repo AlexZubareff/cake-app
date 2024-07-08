@@ -12,12 +12,21 @@ export class ProductsService {
     ){}
 
     async getAllProducts(): Promise<Product[]> {
-        return this.productModel.find()
+        return this.productModel.find();
     }
    
+    async getProductByType(param: { type: string; limit: number; }): Promise<Product[]> {
+        return this.productModel.find({"type": param.type}).limit(param.limit);
+    }
+
     async getProductById(id: string): Promise<Product> {
         return this.productModel.findById(id)
     }
+
+    // async getProductByType(type: string): Promise<Product[]> {
+    //     return this.productModel.findOne({"type": type})
+    // }
+
 
     async addProduct(data): Promise<Product> {
 
