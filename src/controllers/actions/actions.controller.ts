@@ -6,8 +6,6 @@ import { Action } from 'src/shemas/action';
 export class ActionsController {
     constructor(private actionsService: ActionsService) {}
 
-
-
     @Get()
     getAllActions(@Query() query: any): Promise<Action[]> {
         // console.log('Query Parameter: ', query);
@@ -20,13 +18,10 @@ export class ActionsController {
         return this.actionsService.getActionByType(query)
     }
 
-
-
     @Get(":id")
     getActionById(@Param('id') id): Promise<Action> {
         return this.actionsService.getActionById(id)
     }
-
 
     @Post()
     addAction(@Body() data): Promise<Action> {
@@ -41,7 +36,5 @@ export class ActionsController {
                   errorText: 'Продукт ошибка',
                 }, HttpStatus.CONFLICT);
             }
-       
-    }
-
+           }
 }

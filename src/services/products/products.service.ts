@@ -23,9 +23,7 @@ export class ProductsService {
         return this.productModel.findById(id)
     }
 
-    // async getProductByType(type: string): Promise<Product[]> {
-    //     return this.productModel.findOne({"type": type})
-    // }
+
 
 
     async addProduct(data): Promise<Product> {

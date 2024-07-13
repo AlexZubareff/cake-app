@@ -1,5 +1,4 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post, Query } from '@nestjs/common';
 
 import { ProductsService } from 'src/services/products/products.service';
 import { Product } from 'src/shemas/product';
@@ -9,11 +8,8 @@ export class ProductsController {
 
     constructor(private productsService: ProductsService) {}
 
-
-
     @Get()
     getAllProducts(): Promise<Product[]> {
-        // console.log('Query Parameter: ', query);
         return this.productsService.getAllProducts()
     }
 
@@ -23,13 +19,10 @@ export class ProductsController {
         return this.productsService.getProductByType(query)
     }
 
-
-
     @Get(":id")
     getProductById(@Param('id') id): Promise<Product> {
         return this.productsService.getProductById(id)
     }
-
 
     @Post()
     addProduct(@Body() data): Promise<Product> {
