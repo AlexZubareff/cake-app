@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Param, Body, Put } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, Put, UseGuards } from '@nestjs/common';
+import { JwtAuthGuardService } from 'src/services/authentication/jwt-auth.guard/jwt-auth.guard.service';
 import { CartsService } from 'src/services/carts/carts.service';
 import { Cart } from 'src/shemas/carts';
 
@@ -11,6 +12,8 @@ export class CartsController {
     getAllCarts(): Promise<Cart[]> {
         return this.cartsService.getAllCarts()
     }
+
+    // @UseGuards(JwtAuthGuardService)
     @Get(":id")
     getCartById(@Param('id') id): Promise<Cart> {
         return this.cartsService.getCartById(id)
