@@ -63,7 +63,8 @@ console.log('addUser data: ', data);
           login: userFromDb[0].login,
           email: userFromDb[0].email,
           access_token: this.jwtService.sign(payload),
-          cartId: userFromDb[0].cartId
+          cartId: userFromDb[0].cartId,
+          role: userFromDb[0].role
         };
       }
 
