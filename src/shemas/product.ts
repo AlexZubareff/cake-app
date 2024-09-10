@@ -4,7 +4,7 @@ import { IProduct } from 'src/interfaces/product';
 
 export type ProductDocument = HydratedDocument<Product>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Product implements IProduct {
 
 @Prop({required: true, minlength: 2})

@@ -7,6 +7,7 @@ import { UsersModule } from './controllers/users/users.module';
 import { ProductsModule } from './controllers/products/products.module';
 import { CartsModule } from './controllers/carts/carts.module';
 import { ActionsModule } from './controllers/actions/actions.module';
+import { OrdersModule } from './controllers/orders/orders.module';
 
 
 const url = process.env.MONGO_URL || 'localhost';
@@ -38,7 +39,8 @@ const url = process.env.MONGO_URL || 'localhost';
     UsersModule, 
     ProductsModule,
     CartsModule,
-    ActionsModule
+    ActionsModule,
+    OrdersModule
 ],
   controllers: [AppController],
   providers: [AppService],

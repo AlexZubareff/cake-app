@@ -5,7 +5,7 @@ import { IProductInCart } from 'src/interfaces/product';
 
 export type CartDocument = HydratedDocument<Cart>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Cart implements ICart {
  
 

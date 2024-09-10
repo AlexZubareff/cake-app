@@ -4,7 +4,7 @@ import { IUser } from 'src/interfaces/user';
 
 export type UserDocument = HydratedDocument<User>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class User implements IUser {
 
   @Prop({required: true, minlength: 2})

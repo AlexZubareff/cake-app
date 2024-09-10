@@ -4,7 +4,7 @@ import { IAction } from 'src/interfaces/action';
 
 export type ActionDocument = HydratedDocument<Action>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Action implements IAction {
 
 @Prop({required: true, minlength: 2})
