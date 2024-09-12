@@ -13,9 +13,14 @@ export class Order implements IOrder {
     userId: string
    
     @Prop()
-    order: Array<IProductInCart>;
+    order: Array<IProductInCart>
 
-  
+    @Prop()
+    productCount: string
+
+    @Prop()
+    productCoast: string
+ 
 
 }
 

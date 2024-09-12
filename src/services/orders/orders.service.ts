@@ -24,6 +24,9 @@ export class OrdersService {
       const orderData = new this.orderModel();
       orderData.userId = data.userId;
       orderData.order = data.order;
+      orderData.productCount = data.productCount;
+      orderData.productCoast = data.productCoast;
+      
       console.log('cartData to save: ', orderData)
 
       return orderData.save();
